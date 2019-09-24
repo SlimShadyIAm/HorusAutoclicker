@@ -8,7 +8,7 @@ function checkForCards() {
 	// loop through the cards to see if we can find list for today
 	for (i = 0; i < cards.length; i++) {
 		var cardTitle = cards[i].children[0].children[0].children[0].title;
-		if (cardTitle == "Sign-off: CAO Today") {
+		if (cardTitle.includes("Today")) {
 			var joinQueueButton =
 				cards[i].children[0].children[0].children[2].children[0];
 			if (joinQueueButton.title == "Join queue") {
@@ -19,7 +19,7 @@ function checkForCards() {
 	}
 }
 
-// run the check for new queues every 50 milliseconds
+// run the check for new queues every 10 milliseconds
 setInterval(() => {
 	checkForCards();
-}, 50);
+}, 10);
